@@ -6,7 +6,7 @@ using UnityEngine;
 public class NormalBird : MonoBehaviour
 {
     
-    private bool isCoroutineRunning = false;
+    
     public GameObject normalBird;
     public GameObject initPos;
     private Rigidbody2D bird;

@@ -6,7 +6,7 @@ public class SlingShotLine : MonoBehaviour
 {
 
     public Bird bird;
-    public GameObject[] birdObject;
+    public GameObject birdObject;
     public LineRenderer lineRenderer;
     // Start is called before the first frame update
      void Start()
@@ -23,8 +23,10 @@ public class SlingShotLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        birdObject = GameObject.FindGameObjectsWithTag("Bird");
-        if (birdObject.Length > 0) bird = birdObject[0].GetComponent<Bird>();
+        GameObject nextBird = GameObject.FindGameObjectWithTag("BirdController").GetComponent<ChooseBird>().nextBird;
+        birdObject = GameObject.FindGameObjectWithTag("Bird");
+        if (birdObject) bird = birdObject.GetComponent<Bird>();
+        else return;
          // Kiểm tra xem chim có tồn tại không
         if (bird.isDragging && lineRenderer)
         {

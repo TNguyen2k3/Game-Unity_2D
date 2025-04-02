@@ -56,11 +56,13 @@ public class EnemyHealth : MonoBehaviour
         
         float damage = collision.relativeVelocity.magnitude * damageRatio; 
         
-        health -= damage;
+        
         if (bird){
             Debug.Log("Damage: " + damage);
-            velocityAfterCollision = (float) (-1 * (health / damage + 0.0));
+            //?
+            if (health > 0) velocityAfterCollision = (float) ((damage - health )/ damage + 0.0);
         }
+        health -= damage;
         if (health < 0.7 * maxHealth) spriteRenderer.sprite = bruisedSprite; 
         
         

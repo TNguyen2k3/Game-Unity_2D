@@ -10,9 +10,9 @@ public class PlayAgain : MonoBehaviour
     public string sceneName; // Name of the game scene you want to load after resetting the game
     void Start()
     {
-        if (PlayerPrefs.HasKey("CurrentLevel")) {
-            sceneName = PlayerPrefs.GetString("CurrentLevel");
-        }
+        
+        sceneName = PlayerPrefs.GetString(sceneName);
+        
     }
 
     // Update is called once per frame

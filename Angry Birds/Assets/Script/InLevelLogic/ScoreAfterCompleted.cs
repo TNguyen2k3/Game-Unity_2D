@@ -10,13 +10,23 @@ public class ScoreAfterCompleted : MonoBehaviour
     TextMeshProUGUI scoreText;
     public TextMeshProUGUI resultText;
     Image finishImage;
+    private GameDataManager dataManager;
+    
     void Start()
     {
+        dataManager = FindObjectOfType<GameDataManager>();
         finishImage = GameObject.FindGameObjectWithTag("Finish").GetComponent<Image>();
         scoreText = GetComponent<TextMeshProUGUI>();
-        int level = PlayerPrefs.GetInt("level");
-        int twoStarScore = PlayerPrefs.GetInt("twoStarScore" + level);
-        int threeStarScore = PlayerPrefs.GetInt("threeStarScore" + level);
+        string level = PlayerPrefs.GetString("level");
+        Debug.Log("level = " + level);
+        string levelKey = "lv" + level;
+        LevelDataEntry levelEntry = dataManager.gameData.levels.Find(l => l.levelKey == levelKey);
+        if (levelEntry == null)
+        {
+            Debug.LogError("Không tìm thấy dữ liệu của level: " + levelKey);
+            return;
+        }
+        LevelData levelData = levelEntry.levelData;
         // Debug.Log("Level: " + level + twoStarScore + "     " + threeStarScore);
         if (PlayerPrefs.HasKey("Score") && PlayerPrefs.HasKey("isWin"))
         {
@@ -38,10 +48,10 @@ public class ScoreAfterCompleted : MonoBehaviour
                 resultText.text = "Victory";
                 Color hexColor;
                 ColorUtility.TryParseHtmlString("#FF00FF", out hexColor);
-                if (score < twoStarScore) {
+                if (score < levelData.twoStarScore) {
                     stars[0].GetComponent<SpriteRenderer>().color = hexColor;
                 }
-                else if (score < threeStarScore){
+                else if (score < levelData.threeStarScore){
                     stars[0].GetComponent<SpriteRenderer>().color = hexColor;
                     stars[1].GetComponent<SpriteRenderer>().color = Color.yellow;
                 }

@@ -5,15 +5,19 @@ using UnityEngine;
 
 public class HighScoreController : MonoBehaviour
 {
+    private GameDataManager dataManager;
     TextMeshProUGUI highScoreText;
     // Start is called before the first frame update
     void Start()
     {
         highScoreText = GetComponent<TextMeshProUGUI>();
         GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        dataManager = FindObjectOfType<GameDataManager>();
+
         string level = mainCamera.GetComponent<ResultOfLevel>().level;
-        if (PlayerPrefs.HasKey("highScore" + level)){
-            int highScore = PlayerPrefs.GetInt("highScore" + level);
+        LevelDataEntry levelData = dataManager.gameData.levels.Find(l => l.levelKey == "lv" + level);
+        if (levelData != null){
+            int highScore = levelData.levelData.highScore;
             highScoreText.text = "High Score: " + highScore;
         }
         else highScoreText.text = "High Score: 0";

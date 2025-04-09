@@ -56,6 +56,7 @@ Each object is stored in a compact format:
 {
   "data": "prefabName@@x,y,z@@x,y,z@@type"
 }
+
 📦 Folder Structure
 Angry Birds/
 ├── Assets/
@@ -73,3 +74,22 @@ Angry Birds/
 ├── README.md
 │ 
 ├──  And some miscellaneous folder
+
+🛠 Technologies Used
+Unity Engine
+C#
+JSON Serialization
+Custom Tools with Unity UI
+Express server
+
+📮 Future Improvements
+Online level sharing and browsing.
+Difficulty rating from players.
+Leaderboard based on user levels.
+Support for mobile devices (Android/iOS).
+
+🧑‍💻 Author
+Made with ❤️ by [Vũ Trung Nguyên]
+Feel free to contribute or fork!
+
+

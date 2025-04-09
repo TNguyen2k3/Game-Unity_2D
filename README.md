@@ -29,4 +29,40 @@
 
 1. Clone the repo:
    ```bash
-   [git clone https://github.com/TNguyen2k3/AngryBirds.git](https://github.com/TNguyen2k3/Game-Unity_2D.git)
+   git clone https://github.com/TNguyen2k3/AngryBirds.git
+2. Open the project in Unity.
+
+3. Open the scene Home.
+
+Press Play to run the game or Edit to start designing your own level!
+
+🧪 Level Editor Usage
+Open the Level Editor from the main menu.
+
+Use the toolbar to:
+
+Add birds, pigs, and structures.
+
+cut, copy, paste or delete selected objects.
+
+Click Save to serialize your level to JSON.
+
+Play the level immediately or share it with others.
+
+📁 Level data is saved to:
+Assets/StreamingAssets/CustomLevelData.json
+Each object is stored in a compact format:
+
+{
+  "data": "prefabName@@x,y,z@@x,y,z@@type"
+}
+📦 Folder Structure
+Angry Birds/
+├── Assets/
+│   ├── Assets
+│   ├── Scripts/
+│   ├── Scenes/
+│   ├── Resources/
+│   └── StreamingAssets/CustomLevelData.json
+├── README.md
+And some miscellaneous folder

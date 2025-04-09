@@ -29,4 +29,4 @@
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/TNguyen2k3/AngryBirds.git
+   [git clone https://github.com/TNguyen2k3/AngryBirds.git](https://github.com/TNguyen2k3/Game-Unity_2D.git)

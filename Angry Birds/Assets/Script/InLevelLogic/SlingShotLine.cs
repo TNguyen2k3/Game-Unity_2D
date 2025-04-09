@@ -23,19 +23,21 @@ public class SlingShotLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject nextBird = GameObject.FindGameObjectWithTag("BirdController").GetComponent<ChooseBird>().nextBird;
-        birdObject = GameObject.FindGameObjectWithTag("Bird");
-        if (birdObject) bird = birdObject.GetComponent<Bird>();
-        else return;
-         // Kiểm tra xem chim có tồn tại không
-        if (bird.isDragging && lineRenderer)
-        {
-            lineRenderer.enabled = true;
-            // Cập nhật vị trí điểm đầu và điểm cuối của LineRenderer
-            lineRenderer.SetPosition(0, transform.position - new Vector3(0,-0.1f,0)); // Vị trí chặng ná
-            lineRenderer.SetPosition(1, bird.transform.position);  
-            lineRenderer.SetPosition(2, transform.position - new Vector3(0.1f,0.1f,0));       // Vị trí con chim (khi đang kéo)
+        if (GameObject.FindGameObjectWithTag("BirdController")) { 
+            GameObject nextBird = GameObject.FindGameObjectWithTag("BirdController").GetComponent<ChooseBird>().nextBird;
+            birdObject = GameObject.FindGameObjectWithTag("Bird");
+            if (birdObject) bird = birdObject.GetComponent<Bird>();
+            else return;
+            // Kiểm tra xem chim có tồn tại không
+            if (bird.isDragging && lineRenderer)
+            {
+                lineRenderer.enabled = true;
+                // Cập nhật vị trí điểm đầu và điểm cuối của LineRenderer
+                lineRenderer.SetPosition(0, transform.position - new Vector3(0,-0.1f,0)); // Vị trí chặng ná
+                lineRenderer.SetPosition(1, bird.transform.position);  
+                lineRenderer.SetPosition(2, transform.position - new Vector3(0.1f,0.1f,0));       // Vị trí con chim (khi đang kéo)
+            }
+            else lineRenderer.enabled = false;
         }
-        else lineRenderer.enabled = false;
     }
 }

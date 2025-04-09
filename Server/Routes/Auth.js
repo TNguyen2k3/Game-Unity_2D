@@ -32,14 +32,14 @@ router.post('/register',  async (req, res) => {
 // Đăng nhập
 router.post('/login', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, otp } = req.body;
         console.log(username, password);
         const user = await User.findOne({
             $or: [{ username: username }, { gmail: username }]
         });
         if (!user) return res.status(404).json({ message: "User not found!" });
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(otp, user.otp);
         if (!isMatch) return res.status(401).json({ message: "Invalid credentials!" });
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
@@ -123,7 +123,7 @@ router.post("/verify-otp", async (req, res) => {
     try {
         // Tìm user theo email hoặc username
         const user = await User.findOne({ $or: [{ gmail: username }, { username: username }] });
-        console.log(user.name);
+        
         if (!user) {
             return res.status(404).json({ success: false, message: "Người dùng không tồn tại!" });
         }
@@ -156,5 +156,16 @@ router.post("/verify-otp", async (req, res) => {
         return res.status(500).json({ success: false, message: "Lỗi xác thực OTP!", error });
     }
 });
+
+router.get('/play', authMiddleware, (req, res) => {
+    res.json({
+        message: "Authorized to play!",
+        user: {
+            username: req.user.username,
+            email: req.user.email,
+        }
+    });
+});
+
 
 module.exports = router;

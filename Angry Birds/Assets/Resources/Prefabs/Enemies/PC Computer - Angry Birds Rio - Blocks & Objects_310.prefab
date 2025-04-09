@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3484415022339908022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833686113222815740}
+  - component: {fileID: 3596149348804646429}
+  - component: {fileID: 800681782373168326}
+  - component: {fileID: 3554989511843611689}
+  - component: {fileID: 6260011100296266867}
+  m_Layer: 0
+  m_Name: PC Computer - Angry Birds Rio - Blocks & Objects_310
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &833686113222815740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484415022339908022}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.461812, y: -0.32775235, z: 0}
+  m_LocalScale: {x: 0.5709, y: 0.5394, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &3596149348804646429
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484415022339908022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: bac81dc8e6fa1e946a5b89013f195868, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.94005674, y: 0.81000006}
+    newSize: {x: 0.94005674, y: 0.81000006}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.39926663, y: -0.35975203}
+      - {x: -0.36599803, y: -0.40411016}
+      - {x: 0.4657172, y: -0.40411016}
+      - {x: 0.4657172, y: -0.24885666}
+      - {x: -0.006451696, y: 0.4699851}
+      - {x: 0.017207414, y: 0.38443395}
+      - {x: -0.3881771, y: -0.28212526}
+    - - {x: 0.03322529, y: 0.050560813}
+      - {x: 0.044314828, y: 0.006202668}
+      - {x: 0.0664939, y: -0.015976405}
+      - {x: 0.11085205, y: -0.11578223}
+      - {x: 0.14412065, y: -0.14905085}
+      - {x: -0.066580534, y: -0.14905085}
+      - {x: -0.055491, y: -0.14905085}
+    - - {x: -0.05056576, y: 0.35394692}
+      - {x: 0.07036864, y: 0.11071902}
+      - {x: 0.08275459, y: 0.0858075}
+      - {x: 0.0827548, y: 0.0858075}
+      - {x: 0.08275501, y: 0.0858075}
+      - {x: 0.08275523, y: 0.0858075}
+      - {x: 0.07265201, y: 0.0858075}
+      - {x: 0.013014466, y: -0.12807083}
+      - {x: -0.1486468, y: 0.018862456}
+      - {x: -0.11118835, y: 0.08263013}
+  m_UseDelaunayMesh: 0
+--- !u!50 &800681782373168326
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484415022339908022}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 0.2
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: bac81dc8e6fa1e946a5b89013f195868, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!212 &3554989511843611689
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484415022339908022}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -362754551, guid: 2cff743b0f814324b88aefcbf97fc8f0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.94005674, y: 0.81000006}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &6260011100296266867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484415022339908022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f5ebb767dd4dc40bd58dda22263889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 35
+  element: Rock
+  maxHealth: 0
+  effect: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
+  normalSprite: {fileID: -1536109684, guid: 2cff743b0f814324b88aefcbf97fc8f0, type: 3}
+  bruisedSprite: {fileID: -362754551, guid: 2cff743b0f814324b88aefcbf97fc8f0, type: 3}
+  spriteRenderer: {fileID: 3554989511843611689}
+  velocityAfterCollision: 0

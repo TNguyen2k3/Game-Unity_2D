@@ -59,10 +59,17 @@ Each object is stored in a compact format:
 📦 Folder Structure
 Angry Birds/
 ├── Assets/
+│ 
 │   ├── Assets
+│ 
 │   ├── Scripts/
+│ 
 │   ├── Scenes/
+│ 
 │   ├── Resources/
+│ 
 │   └── StreamingAssets/CustomLevelData.json
+│ 
 ├── README.md
-And some miscellaneous folder
+│ 
+├──  And some miscellaneous folder

@@ -1,0 +1,44 @@
+{
+    "levels": [
+        {
+            "levelKey": "lv1",
+            "levelData": {
+                "highScore": 176023,
+                "twoStarScore": 120000,
+                "threeStarScore": 170000,
+                "starRating": 3,
+                "unlocked": true
+            }
+        },
+        {
+            "levelKey": "lv2",
+            "levelData": {
+                "highScore": 121466,
+                "twoStarScore": 80000,
+                "threeStarScore": 120000,
+                "starRating": 3,
+                "unlocked": true
+            }
+        },
+        {
+            "levelKey": "lv3",
+            "levelData": {
+                "highScore": 0,
+                "twoStarScore": 90000,
+                "threeStarScore": 140000,
+                "starRating": 0,
+                "unlocked": true
+            }
+        },
+        {
+            "levelKey": "lv4",
+            "levelData": {
+                "highScore": 0,
+                "twoStarScore": 100000,
+                "threeStarScore": 130000,
+                "starRating": 0,
+                "unlocked": false
+            }
+        }
+    ]
+}

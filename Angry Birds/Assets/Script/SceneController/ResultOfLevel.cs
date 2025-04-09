@@ -7,8 +7,7 @@ using TMPro;
 public class ResultOfLevel : MonoBehaviour
 {
     public string level = "1";
-    public int twoStarScore;
-    public int threeStarScore;
+    private GameDataManager dataManager;
     public bool isFinished = false;
     GameObject[] enemy; 
     public string finishScene;
@@ -17,20 +16,22 @@ public class ResultOfLevel : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     int highScore;
+    string levelKey;
     // Start is called before the first frame update
     void Start()
     {
-        highScore = int.Parse(highScoreText.text.Substring(12));
+        
+        dataManager = FindObjectOfType<GameDataManager>();
         PlayerPrefs.SetString("level", level);
-        if (!PlayerPrefs.HasKey("twoStarScore" + level.ToString()) || PlayerPrefs.GetInt("twoStarScore" + level.ToString()) == 0){
-            PlayerPrefs.SetInt("twoStarScore" + level.ToString(), twoStarScore);
-            
+        levelKey = "lv" + level.ToString();
+        LevelDataEntry levelEntry = dataManager.gameData.levels.Find(l => l.levelKey == levelKey);
+        if (levelEntry == null)
+        {
+            Debug.LogError("Không tìm thấy dữ liệu của level: " + levelKey);
+            return;
         }
-        if (!PlayerPrefs.HasKey("threeStarScore" + level.ToString()) || PlayerPrefs.GetInt("threeStarScore" + level.ToString()) == 0){
-            PlayerPrefs.SetInt("threeStarScore" + level.ToString(), threeStarScore);
-            
-        }
-        PlayerPrefs.Save();
+        LevelData levelData = levelEntry.levelData;
+        highScore = levelData.highScore;
     }
 
     // Update is called once per frame
@@ -67,12 +68,21 @@ public class ResultOfLevel : MonoBehaviour
         yield return new WaitForSeconds(5);
         int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
         scoreText.text = "Score: " + score.ToString();
-        
+        LevelDataEntry levelEntry = dataManager.gameData.levels.Find(l => l.levelKey == levelKey);
         if (isWin == 1) {
-             if (score > highScore){
+            if (score > highScore){
                 highScore = score;
-                PlayerPrefs.SetInt("highScore" + level.ToString(), highScore);
-                PlayerPrefs.Save();
+                int star = 0;
+                if (score < levelEntry.levelData.twoStarScore) {
+                    star = 1;
+                }
+                else if (score < levelEntry.levelData.threeStarScore){
+                    star = 2;
+                }
+                else {
+                    star = 3;
+                }
+                dataManager.UpdateLevelData(levelKey, highScore, star);
             }
         }
         PlayerPrefs.SetString("CurrentLevel", currentScene);

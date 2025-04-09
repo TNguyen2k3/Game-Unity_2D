@@ -41,27 +41,31 @@ public class EnemyHealth : MonoBehaviour
     }
     
     private void OnCollisionEnter2D(Collision2D collision){ 
-        float damageRatio = 1f;
-        Bird bird = collision.gameObject.GetComponent<Bird>();
-        if (bird != null){
-            if ((bird.strongElement == element && bird.strongElement != "None") || bird.strongElement == "All"){
-                damageRatio = 10f;
+        if (enabled){
+            float damageRatio = 1f;
+            Bird bird = collision.gameObject.GetComponent<Bird>();
+            if (bird != null){
+                if ((bird.strongElement == element && bird.strongElement != "None") || bird.strongElement == "All"){
+                    damageRatio = 10f;
+                }
             }
-        }
-        else if (collision.gameObject.GetComponent<CloneOfBlue>() != null){
-            if (element == "Ice"){
-                damageRatio = 10f;
+            else if (collision.gameObject.GetComponent<CloneOfBlue>() != null){
+                if (element == "Ice"){
+                    damageRatio = 10f;
+                }
             }
+            
+            float damage = collision.relativeVelocity.magnitude * damageRatio; 
+            
+            
+            if (bird){
+                Debug.Log("Damage: " + damage);
+                //?
+                if (health > 0) velocityAfterCollision = (float) ((damage - health )/ damage + 0.0);
+            }
+            health -= damage;
+            if (health < 0.7 * maxHealth) spriteRenderer.sprite = bruisedSprite; 
         }
-        
-        float damage = collision.relativeVelocity.magnitude * damageRatio; 
-        
-        health -= damage;
-        if (bird){
-            Debug.Log("Damage: " + damage);
-            velocityAfterCollision = (float) (-1 * (health / damage + 0.0));
-        }
-        if (health < 0.7 * maxHealth) spriteRenderer.sprite = bruisedSprite; 
         
         
         

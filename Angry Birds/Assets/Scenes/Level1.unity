@@ -2615,6 +2615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mobile - Angry Birds - Post-Chrome Characters_92
       objectReference: {fileID: 0}
+    - target: {fileID: 2212359339344891382, guid: 8994d04c12cca1841accb9d10ff8d042, type: 3}
+      propertyPath: explosionForce
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3682253548142870712, guid: 8994d04c12cca1841accb9d10ff8d042, type: 3}
       propertyPath: initialPosition
       value: 

@@ -80,7 +80,7 @@ public class Bird : MonoBehaviour
     private void OnMouseDrag()
     {
         GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        if (tag == "Bird" && !isMouseUp && !mainCamera.GetComponent<ResultOfLevel>().isFinished){
+        if (tag == "Bird" && !isMouseUp && (!mainCamera.GetComponent<ResultOfLevel>() || !mainCamera.GetComponent<ResultOfLevel>().isFinished) ){
             isDragging = true;
             isMouseUp = false;
             // Nếu jumpCoroutine đang chạy, dừng nó

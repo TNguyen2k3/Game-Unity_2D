@@ -42,6 +42,7 @@ public class LevelPlayable : MonoBehaviour
     }
     public void OnButtonClicked(){
         if (isLocked == false){
+            PlayerPrefs.SetString("current_level", level);
             SceneManager.LoadScene("Level" + level);
         }
         

@@ -294,7 +294,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
   explosionDelay: 3
   explosionRadius: 0.5
-  explosionForce: 20
+  explosionForce: 40
   upwardsModifier: 0.2
   explosionDamage: 40
 --- !u!114 &5229862140823895371

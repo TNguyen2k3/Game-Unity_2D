@@ -14,8 +14,13 @@ public class HighScoreController : MonoBehaviour
         GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         dataManager = FindObjectOfType<GameDataManager>();
 
-        string level = mainCamera.GetComponent<ResultOfLevel>().level;
-        LevelDataEntry levelData = dataManager.gameData.levels.Find(l => l.levelKey == "lv" + level);
+        string level = null;
+        if (mainCamera.GetComponent<ResultOfLevel>()) level = mainCamera.GetComponent<ResultOfLevel>().level;
+        if (level == null) {
+            level = PlayerPrefs.GetString("current_level");
+        }
+        LevelDataEntry levelData = null;
+        if (dataManager) dataManager.gameData.levels.Find(l => l.levelKey == "lv" + level);
         if (levelData != null){
             int highScore = levelData.levelData.highScore;
             highScoreText.text = "High Score: " + highScore;

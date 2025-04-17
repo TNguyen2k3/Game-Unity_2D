@@ -10,7 +10,7 @@ public class GameDataManager : MonoBehaviour
 
     void Awake()
     {
-        filePath = Application.dataPath + "/StreamingAssets/gamedata.json";;
+        filePath = Application.dataPath + "/StreamingAssets/gamedata.json";
         LoadGameData();
     }
 

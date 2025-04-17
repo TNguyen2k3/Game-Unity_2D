@@ -9,7 +9,7 @@ public class WhiteThrowEgg : MonoBehaviour
     public GameObject egg;
     public GameObject[] eggs = new GameObject[2];
     int numberOfClicks = 0;
-    private bool isCollided = false;
+    public bool isCollided = false;
     void Start()
     {
         

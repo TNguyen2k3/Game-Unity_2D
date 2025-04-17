@@ -8,6 +8,7 @@ public class SendOTP : MonoBehaviour
 {
     private string serverURL = "http://localhost:5000/auth/request-otp";
     public TMP_InputField usernameField;
+    public TMP_Text errorMessage;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,9 @@ public class SendOTP : MonoBehaviour
     {
         if (string.IsNullOrEmpty(username))
         {
-            Debug.LogError("Username không được để trống!");
+            errorMessage.text = "Username không được để trống!";
+            StartCoroutine(ErrorMessage());
+            // Debug.LogError("Username không được để trống!");
             yield break; // Dừng coroutine nếu không có username
         }
         string jsonData = "{\"username\": \"" + username + "\"}";
@@ -40,6 +43,8 @@ public class SendOTP : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
+                errorMessage.text = "Lỗi khi gửi OTP: " + request.error;
+                StartCoroutine(ErrorMessage());
                 Debug.Log("Lỗi khi gửi OTP: " + request.error);
             }
             else
@@ -52,5 +57,12 @@ public class SendOTP : MonoBehaviour
     void Update()
     {
         
+    }
+    IEnumerator ErrorMessage(){
+        errorMessage.enabled = true;
+        errorMessage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        errorMessage.enabled = false;
+        errorMessage.gameObject.SetActive(false);
     }
 }

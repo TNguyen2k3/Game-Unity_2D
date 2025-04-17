@@ -17,6 +17,7 @@ public class LevelObjectData
 [System.Serializable]
 public class LevelCustomData
 {
+    public bool isValidLevel;
     public string levelName;
     public List<LevelObjectData> birds = new List<LevelObjectData>();
     public List<LevelObjectData> enemies = new List<LevelObjectData>();
@@ -58,7 +59,7 @@ public class SaveLevelData : MonoBehaviour
         // Tạo dữ liệu level
         LevelCustomData levelData = new LevelCustomData();
         levelData.levelName = levelName;
-
+        levelData.isValidLevel = false;
         foreach (GameObject obj in objectSelectionUI.Enemies)
         {
             levelData.enemies.Add(new LevelObjectData(

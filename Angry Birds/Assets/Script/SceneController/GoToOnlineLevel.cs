@@ -19,6 +19,10 @@ public class GoToOnlineLevel : MonoBehaviour
         if (PlayerPrefs.HasKey("nickname") && PlayerPrefs.HasKey("token")){
             StartCoroutine(SendDataToServer(PlayerPrefs.GetString("token")));
         }
+        else {
+            errorMessage.text = "You must login to go to level editor";
+            StartCoroutine(ErrorMessage());
+        }
     }
 
     IEnumerator SendDataToServer(string token){
@@ -37,11 +41,16 @@ public class GoToOnlineLevel : MonoBehaviour
             // Load scene hoặc cho phép chơi
             UnityEngine.SceneManagement.SceneManager.LoadScene("ChooseMode");
         }
+        else if (request.result == UnityWebRequest.Result.ProtocolError && request.responseCode == 403){
+            errorMessage.text = "Your section expired, please login again";
+            StartCoroutine(ErrorMessage());
+            
+        }
         else
         {
+            errorMessage.text = request.error;
             StartCoroutine(ErrorMessage());
-            Debug.LogError("Token không hợp lệ: " + request.error);
-            Debug.Log("Server response: " + request.downloadHandler.text);
+           
             // Hiển thị popup báo lỗi, hoặc chuyển về màn login
         }
     }
@@ -50,6 +59,7 @@ public class GoToOnlineLevel : MonoBehaviour
         errorMessage.enabled = true;
         yield return new WaitForSeconds(3);
         errorMessage.enabled = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Login");
     }
     // Update is called once per frame
     

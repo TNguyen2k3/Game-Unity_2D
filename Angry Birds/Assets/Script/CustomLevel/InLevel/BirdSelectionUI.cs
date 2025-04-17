@@ -22,7 +22,7 @@ public class BirdSelectionUI : MonoBehaviour
     public Transform MainPanel;
     public TMP_Text ErrorText;
     float posYBird = -2f;
-    float posXBird = -2.58f;
+    float posXBird = -2.78f;
     int posY = -20;
     public BirdPosition[] birdPositions = new BirdPosition[10];
     public GameObject InitialPosition;

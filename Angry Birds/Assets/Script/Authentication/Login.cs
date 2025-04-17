@@ -10,6 +10,7 @@ using System.Text;
 using System.Linq;
 public class Login : MonoBehaviour
 {
+    public TMP_Text errorMessage;
     public TMP_InputField usernameField;
     public TMP_InputField OTPField;
     private string serverURL = "http://localhost:5000/auth/verify-otp";
@@ -73,6 +74,8 @@ public class Login : MonoBehaviour
         }
         else
         {
+            errorMessage.text = request.error;
+            StartCoroutine(ErrorMessage());
             Debug.Log("Lỗi kết nối đến server: " + request.error);
         }
     }
@@ -130,5 +133,12 @@ public class Login : MonoBehaviour
     void Update()
     {
         
+    }
+    IEnumerator ErrorMessage(){
+        errorMessage.enabled = true;
+        errorMessage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        errorMessage.enabled = false;
+        errorMessage.gameObject.SetActive(false);
     }
 }

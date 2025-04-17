@@ -38,6 +38,7 @@ public class MoveScreen : MonoBehaviour
             {
                 return;
             }
+            Debug.Log("Right mouse down");
             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             previousPos = startPos;  // Lưu lại vị trí bắt đầu
         }
@@ -49,11 +50,11 @@ public class MoveScreen : MonoBehaviour
             
             // Tính toán sự di chuyển
             Vector2 movement = previousPos - endPos;
-            
+            // Debug.Log("Dragging movement: " + movement);
             // Sử dụng Lerp để làm mượt chuyển động camera
             Vector3 targetPosition = mainCamera.transform.position + (Vector3)movement;
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, smoothSpeed * Time.unscaledDeltaTime);
+            // Debug.Log(Time.deltaTime);
             previousPos = endPos; // Cập nhật vị trí trước cho lần kéo sau
         }
     }

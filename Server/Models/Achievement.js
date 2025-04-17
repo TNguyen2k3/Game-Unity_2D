@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const achievementSchema = new mongoose.Schema({
     name: { type: String, unique: true, required: true, ref: 'User' }, // Foreign Key
     totalScore: { type: Number, required: true },
-    starAchieve: { type: Number, required: true },
     levelPassed: { type: Number, required: true },
     rank: { type: String, required: true }
 });

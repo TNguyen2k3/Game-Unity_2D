@@ -27,34 +27,32 @@ public class LevelEditorManager : MonoBehaviour
        // COPY
         if ((Input.GetKeyDown(KeyCode.C) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))))
         {
-            if (selectTool.selectedItems.Count > 0)
-            {
+            
                 HandleToolAction(selectTool.selectedItems, Input.mousePosition, EditorTool.Copy);
-            }
+            
         }
 
         // CUT
         if ((Input.GetKeyDown(KeyCode.X) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))))
         {
-            if (selectTool.selectedItems.Count > 0)
-            {
+            
                 HandleToolAction(selectTool.selectedItems, Input.mousePosition, EditorTool.Cut);
-            }
+            
         }
 
         // DELETE
         if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Backspace))
         {
-            if (selectTool.selectedItems.Count > 0)
-            {
+            
                 HandleToolAction(selectTool.selectedItems, Input.mousePosition, EditorTool.Delete);
-            }
+            
         }
 
         // PASTE
         if ((Input.GetKeyDown(KeyCode.V) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))))
         {
             HandleToolAction(selectTool.selectedItems, Input.mousePosition, EditorTool.Paste);
+            
         }
     }
 
@@ -64,6 +62,7 @@ public class LevelEditorManager : MonoBehaviour
         {
             case EditorTool.Delete:
                 isCopy = false;
+                isCut = false;
                 foreach (var o in obj){
                     
                     if (o.GetComponent<Bird>()) {
@@ -84,15 +83,25 @@ public class LevelEditorManager : MonoBehaviour
                 break;
 
             case EditorTool.Copy:
+                if (isCut){
+                    if (cloneCopied.Count > 0){
+                        foreach (var i in cloneCopied){
+                            Debug.Log("Cut remaining: " + i);
+                            i.SetActive(true);
+                        }
+                    }
+                    if (!isCut) cloneCopied.Clear();
+                    isCut = false; 
+                }
                 isCopy = true;
-                if (cloneCopied.Count > 0) cloneCopied.Clear();
+                
                 foreach (var o in obj){
                     if (o.GetComponent<EnemyHealth>()){
                         cloneCopied.Add(o);
                         selectTool.Deselect(o);
                     }
                 }
-                selectTool.selectedItems.Clear();
+                // selectTool.selectedItems.Clear();
                 // GameObject clone = Instantiate(obj.gameObject, obj.transform.position + Vector3.right * 1.5f, Quaternion.identity);
                 break;
             case EditorTool.Paste:
@@ -120,11 +129,18 @@ public class LevelEditorManager : MonoBehaviour
                     Vector3 pos = clone.transform.position;
                     pos.z = 0f;
                     clone.transform.position = pos;
+                    if (isCut) clone.SetActive(true);
+                    if (!isCopy) {
+                        objectSelectionUI.Enemies.Remove(o);
+                        objectSelectionUI.Enemies.Add(clone);
+                        Destroy(o);
+                    }
                 }
                 // add element to Enemies list
                 
                 if (isCut) {
                     cloneCopied.Clear();
+                    selectTool.selectedItems.Clear();
                 }
                 
                 // SetTool(EditorTool.Select);
@@ -136,8 +152,7 @@ public class LevelEditorManager : MonoBehaviour
                     if (o.GetComponent<EnemyHealth>()){
                         cloneCopied.Add(o);
                         selectTool.Deselect(o);
-                        Destroy(o);
-                        
+                        o.SetActive(false);
                     }
                 }
                 selectTool.selectedItems.Clear();

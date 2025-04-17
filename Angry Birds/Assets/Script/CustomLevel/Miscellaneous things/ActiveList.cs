@@ -10,17 +10,28 @@ public class ActiveList : MonoBehaviour
     private bool isActiveList = false;
     public GameObject Panel;
     public Button button;
+    public TMP_Dropdown chooseMode;
     public void OnButtonClicked()
     {
-        if (button.GetComponentInChildren<TMP_Text>().text == "+"){
+        if (button){
+            if (button.GetComponentInChildren<TMP_Text>().text == "+"){
+                isActiveList = !isActiveList; // Đảo trạng thái hiển thị
+                SetButtonsActive(isActiveList);
+            }
+            else {
+                PlayerPrefs.SetString("current_level", button.GetComponentInChildren<TMP_Text>().text);
+                PlayerPrefs.Save();
+                chooseMode.gameObject.SetActive(true);
+                chooseMode.interactable = true;
+                // chooseMode.GetComponent<RectTransform>().anchoredPosition = button.GetComponent<RectTransform>().anchoredPosition + new Vector2(0, 150);
+                // SceneManager.LoadScene("CreateLevel");
+            }
+        }
+        else {
             isActiveList = !isActiveList; // Đảo trạng thái hiển thị
             SetButtonsActive(isActiveList);
         }
-        else {
-            PlayerPrefs.SetString("current_level", button.GetComponentInChildren<TMP_Text>().text);
-            PlayerPrefs.Save();
-            SceneManager.LoadScene("CreateLevel");
-        }
+        
     }
     void Start(){
         // SetButtonsActive(false);

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-public class LoadSavedData : MonoBehaviour
+public class LoadToPlay : MonoBehaviour
 {
     private string filePath = Application.dataPath + "/StreamingAssets/CustomLevelData.json";
     public GameObject initialPosition;
-    public BirdSelectionUI birdSelectionUI;
-    public ObjectSelectionUI objectSelectionUI;
+    
     public GameObject BirdParent;
     // Start is called before the first frame update
     void Awake()
     {
         
         LoadLevelData();
+        Time.timeScale = 1;
     }
 
     void LoadLevelData(){
@@ -74,13 +74,13 @@ public class LoadSavedData : MonoBehaviour
         if (type == "bird") temp = Instantiate(prefab, pos, rot, BirdParent.transform);
         else temp = Instantiate(prefab, pos, rot);
         if (type == "bird") {
-            birdSelectionUI.birdSelected.Add(temp);
+            
             temp.GetComponent<Bird>().initialPosition = initialPosition;
-            temp.GetComponent<NormalBird>().enabled = false;
+            temp.GetComponent<NormalBird>().enabled = true;
         }
         else {
-            objectSelectionUI.Enemies.Add(temp);
-            temp.GetComponent<EnemyHealth>().enabled = false;
+            
+            temp.GetComponent<EnemyHealth>().enabled = true;
         }
     }
     Vector3 StringToVector3(string s)

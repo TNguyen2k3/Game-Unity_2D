@@ -10,6 +10,9 @@ public class CameraBehaviour : MonoBehaviour
     public GameObject start;
     public float returnSpeed = 0.1f;
     // Start is called before the first frame update
+    void Awake(){
+        Time.timeScale = 1;
+    }
     void Start()
     {
         transform.position = start.transform.position + new Vector3(0, 0, -0.6f);

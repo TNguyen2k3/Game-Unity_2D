@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const Achievement = require("../Models/Achievement");
 require("dotenv").config();
 const router = express.Router();
 
@@ -25,7 +26,8 @@ router.post('/register',  async (req, res) => {
         }
         const hashedPassword = await bcrypt.hash("######", 10);
         const newUser = new User({ name: nickname, gmail, username, otp: hashedPassword, otpExpired });
-
+        const newAchievement = new Achievement({name: nickname})
+        await newAchievement.save();
         await newUser.save();
         res.status(201).json({ message: "User registered successfully!" });
     } catch (error) {

@@ -809,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4107834577302583638, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
       propertyPath: sceneName
-      value: PlayCustomLevel
+      value: PlayOnlineLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4418083986266105057, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
       propertyPath: m_SizeDelta.y
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b44f7d7033c1fa458002c6cb98a6af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: YourLevelList
+  sceneName: OnlineLevelList
 --- !u!1001 &2042810392
 PrefabInstance:
   m_ObjectHideFlags: 0

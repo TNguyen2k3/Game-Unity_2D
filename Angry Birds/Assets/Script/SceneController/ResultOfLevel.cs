@@ -18,6 +18,9 @@ public class ResultOfLevel : MonoBehaviour
     int highScore;
     string levelKey;
     public AllLevelsData allLevelsData;
+    public bool isCheckingPig = false;
+    public int numberOfPigs = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,31 +56,86 @@ public class ResultOfLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemy= GameObject.FindGameObjectsWithTag("Enemy");
-        int numberOfPigs = 0;
-        foreach (GameObject enemy in enemy){
-            if (enemy.GetComponent<EnemyHealth>().element == "Pig"){
-                numberOfPigs++;
+        GameObject[] enemies= GameObject.FindGameObjectsWithTag("Enemy");
+        
+        
+        if (PlayerPrefs.HasKey("isOnlineLevel")) {
+            if (PlayerPrefs.GetInt("isOnlineLevel") == 1){
+                if (!isCheckingPig) StartCoroutine(WaitingForLoading());
+            }
+        }
+        else {
+            
+        
+            
+            foreach (GameObject enemy in enemies){
+                if (enemy.GetComponent<EnemyHealth>().element == "Pig"){
+                    numberOfPigs++;
+                }
+            }
+            if (numberOfPigs == 0){
+                //Debug.Log(scoreText.text.Substring(7));
+                int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
+                //Debug.Log(highScoreText.text.Substring(12));
+                isFinished = true;
+                isWin = 1;
+                StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+            }
+            else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
+                isFinished = true;
+                // Debug.Log("111111");
+                StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+                
             }
         }
         
         
         
         
-        if (numberOfPigs == 0){
-            //Debug.Log(scoreText.text.Substring(7));
-            int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
-            //Debug.Log(highScoreText.text.Substring(12));
-            isFinished = true;
-            isWin = 1;
-            StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+        if (PlayerPrefs.HasKey("isOnlineLevel")) {
+            if (PlayerPrefs.GetInt("isOnlineLevel") == 1 && isCheckingPig == true){
+                if (numberOfPigs == 0){
+                    //Debug.Log(scoreText.text.Substring(7));
+                    int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
+                    //Debug.Log(highScoreText.text.Substring(12));
+                    isFinished = true;
+                    isWin = 1;
+                    StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+                }
+                else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
+                    isFinished = true;
+                    // Debug.Log("111111");
+                    StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+                    
+                }
+            }
         }
-        else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
-            isFinished = true;
-            // Debug.Log("111111");
-            StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+        
+        
+    }
+    IEnumerator WaitingForLoading(){
+        
+        
+        while (numberOfPigs == 0)
+        {
+            GameObject[] enemies= GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                if (enemy.GetComponent<EnemyHealth>().element == "Pig")
+                {
+                    numberOfPigs++;
+                }
+            }
+            yield return null;
+
+            // Lặp lại kiểm tra sau mỗi frame
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            
+
             
         }
+        isCheckingPig = true;
+        Debug.Log(numberOfPigs);
     }
     IEnumerator WaitingFor5Sec(TextMeshProUGUI scoreText, int isWin, string finishScene){
         

@@ -219,7 +219,7 @@ router.get('/get-level-list', authMiddleware, (req, res) => {
     });
 });
 
-router.get('/get-level-data', (req, res) => {
+router.get('/get-level-data', authMiddleware, (req, res) => {
     const { levelName } = req.body;
     const filePath = path.join(__dirname, '../Levels', `${levelName}.json`);
 
@@ -238,6 +238,55 @@ router.get('/get-level-data', (req, res) => {
         }
     });
 });
+
+router.get('/update-achivement', authMiddleware,  async (req, res) => {
+    const {levelName, score, nickname} = req.body;
+    
+    const achievement = await Achievement.findOne({
+        name: nickname,
+        "completedLevels.levelName": levelName
+    });
+    const existingLevel = achievement.completedLevels.find(lv => lv.levelName === levelName);
+
+    if (existingLevel) {
+        if (score > existingLevel.score) {
+            const scoreDiff = score - existingLevel.score;
+
+            await Achievement.updateOne(
+                { name: nickname, "completedLevels.levelName": levelName },
+                {
+                    $set: {
+                        "completedLevels.$.score": score,
+                        "completedLevels.$.completedAt": new Date()
+                    },
+                    $inc: { totalScore: scoreDiff }
+                }
+            );
+        } else {
+            // Không cần update nếu score thấp hơn
+            console.log('Score mới không cao hơn score cũ');
+        }
+    } else {
+        await Achievement.updateOne(
+            { name: nickname },
+            {
+                $push: {
+                    completedLevels: {
+                        levelName: levelName,
+                        score: score,
+                        completedAt: new Date()
+                    }
+                },
+                $inc: {
+                    totalScore: score,
+                    levelPassed: 1
+                }
+            }
+        );
+    }
+    res.sendStatus(200);
+
+})
 
 
 module.exports = router;

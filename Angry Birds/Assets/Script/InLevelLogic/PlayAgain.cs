@@ -10,9 +10,12 @@ public class PlayAgain : MonoBehaviour
     public string sceneName; // Name of the game scene you want to load after resetting the game
     void Start()
     {
-        
-        
-        sceneName = "Level" + PlayerPrefs.GetString("current_level");
+        if (PlayerPrefs.HasKey("isOnlineLevel")) {
+            if (PlayerPrefs.GetInt("isOnlineLevel") == 1){
+                sceneName = "PlayOnlineLevel";
+            }
+        }
+        if (sceneName != "PlayOnlineLevel" && sceneName != "PlayCustomLevel") sceneName = "Level" + PlayerPrefs.GetString("current_level");
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class PlayAgain : MonoBehaviour
         // Example: Load the level again
         if (!SceneExists(sceneName)) UnityEngine.SceneManagement.SceneManager.LoadScene("PlayCustomLevel");
         else {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName); // Load scene by its build index (0 is the first scene)
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }
         Time.timeScale = 1;
     }

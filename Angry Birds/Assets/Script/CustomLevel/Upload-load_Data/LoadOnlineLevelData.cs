@@ -10,7 +10,7 @@ public class LoadOnlineLevelData : MonoBehaviour
     
     public GameObject BirdParent;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         StartCoroutine(LoadLevelData());
     }
@@ -41,19 +41,19 @@ public class LoadOnlineLevelData : MonoBehaviour
 
             
                 
-                    foreach (var bird in levelData.birds)
-                    {
-                        string type = "bird";
-                        CreateObjectFromData(bird.data, type);
-                    }
+            foreach (var bird in levelData.birds)
+            {
+                string type = "bird";
+                CreateObjectFromData(bird.data, type);
+            }
 
-                    foreach (var enemy in levelData.enemies)
-                    {
-                        string type = "enemy";
-                        CreateObjectFromData(enemy.data, type);
-                    }
-                
-            
+            foreach (var enemy in levelData.enemies)
+            {
+                string type = "enemy";
+                CreateObjectFromData(enemy.data, type);
+            }
+            Time.timeScale = 1;
+            PlayerPrefs.SetInt("isOnlineLevel", 1);
         }
     }
 

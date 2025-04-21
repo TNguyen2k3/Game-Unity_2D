@@ -63,6 +63,9 @@ public class LevelEditorManager : MonoBehaviour
             case EditorTool.Delete:
                 isCopy = false;
                 isCut = false;
+                if (cloneCopied.Count > 0){
+                    cloneCopied.Clear();
+                }
                 foreach (var o in obj){
                     
                     if (o.GetComponent<Bird>()) {

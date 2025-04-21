@@ -4,6 +4,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../Models/User');
 const sendMail = require("../utils/sendMail");
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+const zlib = require('zlib');
 require("dotenv").config();
 const router = express.Router();
 
@@ -163,6 +167,72 @@ router.get('/play', authMiddleware, (req, res) => {
         user: {
             username: req.user.username,
             email: req.user.email,
+        }
+    });
+});
+
+
+router.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
+router.use(bodyParser.json({ limit: '10mb' }));
+
+
+// Route để nhận dữ liệu từ client và lưu vào file
+router.post('/save-level', authMiddleware, (req, res) => {
+    const { levelData, nickname } = req.body;
+    const levelsDir = path.join(__dirname, '../Levels');
+    const filePath = path.join(levelsDir, `${nickname}_${levelData.levelName}.json`);
+
+    // Đảm bảo thư mục Levels tồn tại
+    fs.mkdir(levelsDir, { recursive: true }, (err) => {
+        if (err) {
+            console.error('Lỗi khi tạo thư mục:', err);
+            return res.status(500).json({ message: 'Không thể tạo thư mục lưu trữ' });
+        }
+
+        // Ghi file sau khi chắc chắn thư mục tồn tại
+        fs.writeFile(filePath, JSON.stringify(levelData, null, 2), (err) => {
+            if (err) {
+                console.error('Lỗi khi lưu file:', err);
+                return res.status(500).json({ message: 'Lưu thất bại' });
+            }
+            res.status(200).json({ message: 'Lưu thành công' });
+        });
+    });
+});
+
+router.get('/get-level-list', authMiddleware, (req, res) => {
+    // const nickname = req.query.nickname; // hoặc lấy từ token nếu muốn bảo mật hơn
+    const levelsDir = path.join(__dirname, '../Levels');
+
+    fs.readdir(levelsDir, (err, files) => {
+        if (err) {
+            console.error('Lỗi khi đọc thư mục:', err);
+            return res.status(500).json({ message: 'Không thể đọc thư mục levels' });
+        }
+
+        const userFiles = files.filter(file => file.endsWith('.json'));
+        const levelNames = userFiles;
+
+        res.status(200).json({ levels: levelNames });
+    });
+});
+
+router.get('/get-level-data', (req, res) => {
+    const { levelName } = req.body;
+    const filePath = path.join(__dirname, '../Levels', `${levelName}.json`);
+
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Lỗi khi đọc file:', err);
+            return res.status(404).json({ message: 'Level không tồn tại' });
+        }
+
+        try {
+            const jsonData = JSON.parse(data);
+            res.status(200).json(jsonData);
+        } catch (parseErr) {
+            console.error('Lỗi khi parse JSON:', parseErr);
+            res.status(500).json({ message: 'Dữ liệu không hợp lệ' });
         }
     });
 });

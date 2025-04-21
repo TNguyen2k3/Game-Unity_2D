@@ -1,198 +1,266 @@
 {
     "levels": [
         {
-            "isValidLevel": true,
+            "isValidLevel": false,
             "levelName": "125634569",
             "birds": [
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-3,18;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-3,209961;-1,699702;0@@0;0;-0,6564802;0,7543433"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-3,58;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-3,587564;-2,075567;0@@0;0;-0,7972904;0,6035959"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-3,98;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-3,986121;-2,210662;0@@0;0;-0,7695761;0,6385552"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-4,38;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-4,380808;-1,995309;0@@0;0;-0,8142764;0,5804774"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-4,78;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-4,780052;-1,783952;0@@0;0;-0,7916878;0,6109257"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-5,18;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-5,178597;-1,675215;0@@0;0;-0,8207058;0,571351"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-5,58;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-5,58;-1,672848;0@@0;0;-0,792797;0,6094859"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-5,98;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-5,98;-1,672848;0@@0;0;-0,7928005;0,6094812"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-6,38;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-6,379999;-1,672847;0@@0;0;-0,7928324;0,6094397"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_40@@-2,78;-2;0@@0;0;0;1"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_40@@-2,77908;-1,651801;0@@0;0;-0,7991735;0,6011004"
                 }
             ],
             "enemies": [
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@6,011967;-1,885099;0@@0;0;-0,1377625;0,9904653"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@6,01505;-1,885219;0@@0;0;-0,1372877;0,9905313"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,739982;-2,080956;0@@0;0;0,9807053;0,1954918"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,752164;-2,082025;0@@0;0;0,9820866;0,1884305"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,79571;-2,033866;0@@0;0;0,9185683;-0,3952623"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,811291;-2,031041;0@@0;0;-0,9133357;0,4072073"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,872651;-1,885751;0@@0;0;0,09823745;-0,995163"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,880285;-1,885283;0@@0;0;-0,08478938;0,9963989"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,234437;-1,887516;0@@0;0;-0,1310331;0,991378"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,240187;-1,887187;0@@0;0;-0,1383381;0,9903851"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,193746;-0,5191296;0@@0;0;0,2049426;-0,978774"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,20055;-0,5250937;0@@0;0;-0,1999875;0,9797984"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@8,384075;-1,867652;0@@0;0;0,2689484;-0,9631546"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@8,285645;-1,883636;0@@0;0;-0,1332486;0,9910827"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,557265;-2,042958;0@@0;0;0,918799;0,3947258"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,559706;-2,041222;0@@0;0;0,9170678;0,3987315"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,5494708;-1,95728;0@@0;0;-0,7494825;-0,6620243"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,5458241;-1,956548;0@@0;0;0,7464162;0,6654795"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,137409;-1,466739;0@@0;0;-0,7265312;0,6871335"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,146422;-1,467229;0@@0;0;-0,7208288;0,6931131"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,806744;-1,634651;0@@0;0;-0,9362485;-0,3513386"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,811617;-1,633769;0@@0;0;0,9366589;0,3502431"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,022176;-1,955435;0@@0;0;-0,7428783;-0,6694265"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,018408;-1,956972;0@@0;0;0,7478877;0,6638253"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@5,344735;-1,875147;0@@0;0;0,2444011;0,9696742"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@5,348143;-1,875733;0@@0;0;0,2400496;0,9707606"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,400885;-1,765651;0@@0;0;-0,9226509;0,3856364"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,413305;-1,767738;0@@0;0;-0,9221462;0,3868416"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,326002;-2,014172;0@@0;0;-0,8817902;0,4716419"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,338105;-2,015713;0@@0;0;-0,8825855;0,470152"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,990139;-0,8271536;0@@0;0;-0,4664986;0,884522"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,99456;-0,8304708;0@@0;0;-0,4653215;0,8851418"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,294955;-0,3076709;0@@0;0;-0,2575822;-0,9662564"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,2961097;-0,3115319;0@@0;0;0,2455396;0,9693866"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,605856;-1,524513;0@@0;0;-0,5743867;0,8185841"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,615256;-1,527782;0@@0;0;-0,5770803;0,8166874"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,722556;-0,9853415;0@@0;0;0,8804963;-0,4740531"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,727178;-0,9938226;0@@0;0;-0,8777639;0,4790934"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,21194;-1,052893;0@@0;0;-0,4334245;0,9011899"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,218057;-1,058349;0@@0;0;-0,4345383;0,9006534"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,833338;-1,356102;0@@0;0;0,7284618;0,6850864"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,843707;-1,360754;0@@0;0;0,7266404;0,687018"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,469013;-1,269808;0@@0;0;0,9963159;-0,08575907"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,475312;-1,271679;0@@0;0;-0,9963253;0,08565024"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@5,07074;-1,475703;0@@0;0;-0,1460559;0,9892764"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@5,078238;-1,473418;0@@0;0;-0,150243;0,9886491"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@5,531609;-1,468024;0@@0;0;-0,69564;-0,7183906"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@5,534467;-1,470251;0@@0;0;0,6980156;0,7160826"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@6,463987;-2,043154;0@@0;0;-0,9241534;-0,3820216"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@6,466015;-2,042099;0@@0;0;0,922703;0,3855115"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,007438;-0,7300121;0@@0;0;0,495742;0,8684699"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,011222;-0,7363507;0@@0;0;0,4976081;0,867402"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,55933;-0,335748;0@@0;0;-0,1026786;0,9947146"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@3,562556;-0,3407041;0@@0;0;-0,1013443;0,9948514"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,375252;-1,523533;0@@0;0;-0,9824436;0,1865599"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,371593;-1,530033;0@@0;0;-0,9876996;0,1563639"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,422637;-1,424177;0@@0;0;0,5909406;0,8067151"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@4,428736;-1,42518;0@@0;0;0,6005028;0,7996227"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,4622469;-2,101172;0@@0;0;-0,9982264;-0,05953171"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,4623787;-2,101119;0@@0;0;0,9981885;0,06016492"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,007874835;-0,116094;0@@0;0;0,9952186;0,09767337"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,009203559;-0,1175211;0@@0;0;0,9943694;0,105969"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,08227834;-0,9851046;0@@0;0;-0,8548291;-0,5189096"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,08360843;-0,9886386;0@@0;0;0,8557076;0,5174598"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,3787975;-1,637082;0@@0;0;0,9986002;0,05289333"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,3780087;-1,63707;0@@0;0;0,9987203;0,05057358"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,498836;-0,9116928;0@@0;0;-0,6053627;-0,7959498"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,506284;-0,9202972;0@@0;0;0,606144;0,795355"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@6,204375;-1,42166;0@@0;0;0,1837014;-0,9829821"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@6,206807;-1,420358;0@@0;0;-0,1806892;0,9835403"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,6971359;-1,330398;0@@0;0;-0,5459424;-0,8378227"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,7008926;-1,330983;0@@0;0;0,5406132;0,8412713"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,06008883;-1,872384;0@@0;0;0,3778558;0,9258644"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,05991273;-1,872674;0@@0;0;0,3711387;0,9285774"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,049344;-0,8250424;0@@0;0;0,657228;0,7536919"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,057668;-0,8405346;0@@0;0;0,6248493;0,7807454"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,2331997;-1,342112;0@@0;0;-0,001735175;0,9999985"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,2367742;-1,34471;0@@0;0;-0,008629641;0,9999628"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,5674444;-0,8990176;0@@0;0;0,8878697;0,460095"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,5700648;-0,9036723;0@@0;0;0,8894964;0,4569422"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,386002;-0,442221;0@@0;0;0,8525345;0,522671"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,392559;-0,4520743;0@@0;0;0,8570262;0,515273"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,9310745;0,4755499;0@@0;0;-0,838503;0,544897"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,9348361;0,4637073;0@@0;0;-0,8425871;0,5385602"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,8874241;-0,2793611;0@@0;0;0,2238808;0,9746165"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,8960029;-0,2854484;0@@0;0;0,2113106;0,977419"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,851326;-0,07536244;0@@0;0;0,4187816;0,908087"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,856213;-0,08746588;0@@0;0;0,4199629;0,9075413"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,092797;0,0339395;0@@0;0;0,8906506;0,4546883"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@1,097198;0,02443755;0@@0;0;0,8905655;0,4548551"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,3870792;-1,107026;0@@0;0;-0,8948317;-0,4464037"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,3876782;-1,106273;0@@0;0;0,893284;0,4494927"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,5999534;-0,06785755;0@@0;0;-0,9890358;-0,1476764"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,6040588;-0,07717951;0@@0;0;0,9879627;0,1546924"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,3336119;-0,4674601;0@@0;0;0,6612624;0,7501547"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@-0,3331417;-0,4669877;0@@0;0;0,6606307;0,7507111"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,2068108;0,3197896;0@@0;0;-0,9941592;-0,1079242"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@0,212051;0,3159051;0@@0;0;0,992496;0,1222769"
                 },
                 {
-                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,760167;-0,3236519;0@@0;0;-0,2395083;0,9708943"
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_5@@2,76095;-0,3326377;0@@0;0;-0,2343056;0,972163"
                 }
             ]
         },
         {
             "isValidLevel": true,
             "levelName": "1432",
-            "birds": [],
-            "enemies": []
+            "birds": [
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-2,78;-1,667148;0@@0;0;0;1"
+                }
+            ],
+            "enemies": [
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-2,026669;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-1,6521;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-1,266893;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-0,8923233;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-0,5071162;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-0,1194294;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;0,2672971;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-2,025264;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-1,638738;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-1,252196;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-0,8656275;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-0,4790251;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-0,09238301;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;0,294303;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-2,025205;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-1,638577;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-1,251941;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-0,8652914;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-0,4786257;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-0,09194046;0@@0;0;0;1"
+                },
+                {
+                    "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;0,2947663;0@@0;0;0;1"
+                }
+            ]
         }
     ]
 }

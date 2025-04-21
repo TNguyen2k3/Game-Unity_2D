@@ -1,0 +1,74 @@
+{
+  "isValidLevel": true,
+  "levelName": "1432",
+  "birds": [
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-2,78;-1,667148;0@@0;0;0;1"
+    }
+  ],
+  "enemies": [
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-2,026669;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-1,6521;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-1,266893;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-0,8923233;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-0,5071162;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;-0,1194294;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,12252;0,2672971;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-2,025264;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-1,638738;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-1,252196;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-0,8656275;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-0,4790251;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;-0,09238301;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,920992;0,294303;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-2,025205;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-1,638577;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-1,251941;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-0,8652914;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-0,4786257;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;-0,09194046;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@3,83655;0,2947663;0@@0;0;0;1"
+    }
+  ]
+}

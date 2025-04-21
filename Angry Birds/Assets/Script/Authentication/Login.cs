@@ -76,7 +76,7 @@ public class Login : MonoBehaviour
         {
             errorMessage.text = request.error;
             StartCoroutine(ErrorMessage());
-            Debug.Log("Lỗi kết nối đến server: " + request.error);
+            // Debug.Log("Lỗi kết nối đến server: " + request.error);
         }
     }
 

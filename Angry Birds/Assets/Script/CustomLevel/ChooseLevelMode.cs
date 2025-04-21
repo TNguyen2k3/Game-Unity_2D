@@ -17,6 +17,9 @@ public class ChooseLevelMode : MonoBehaviour
             SceneManager.LoadScene("CreateLevel");
         }
         else if (dropdown.options[index].text == "Play this level") SceneManager.LoadScene("PlayCustomLevel");
+        else if (dropdown.options[index].text == "Upload this level") {
+            GetComponent<LevelUploader>().UploadLevel();
+        }
     }
     // Update is called once per frame
     void Update()

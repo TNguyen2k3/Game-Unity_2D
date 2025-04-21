@@ -183,9 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f5ebb767dd4dc40bd58dda22263889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 3
   element: Pig
-  maxHealth: 5
+  maxHealth: 3
   effect: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
   normalSprite: {fileID: -954086526, guid: 72e0126fa9208e942b895d67503921a6, type: 3}
   bruisedSprite: {fileID: 1869533366, guid: 72e0126fa9208e942b895d67503921a6, type: 3}

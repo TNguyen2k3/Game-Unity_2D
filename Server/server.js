@@ -23,7 +23,7 @@ async function connectDB() {
 connectDB();
 
 // Import models trước khi sử dụng
-const Achievement = require("./models/Achievement");
+const Achievement = require("./Models/Achievement");
 
 // Routes
 app.use("/auth", require("./Routes/Auth"));

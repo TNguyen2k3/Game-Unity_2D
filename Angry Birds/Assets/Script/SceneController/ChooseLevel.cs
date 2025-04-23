@@ -13,8 +13,12 @@ public class ChooseLevel : MonoBehaviour
     public string sceneName;
     public void ChooseALevel(){
         if (SceneExists(level)) SceneManager.LoadScene(sceneName);
-        else {
+        else if (!PlayerPrefs.HasKey("isOnlineLevel")){
             sceneName = "YourLevelList";
+            SceneManager.LoadScene(sceneName);
+        }
+        else {
+             sceneName = "OnlineLevelList";
             SceneManager.LoadScene(sceneName);
         }
         Time.timeScale = 1;

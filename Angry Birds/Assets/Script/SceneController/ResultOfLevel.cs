@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
+using UnityEngine.Networking;
+
 public class ResultOfLevel : MonoBehaviour
 {
     public string level = "1";
@@ -20,7 +22,7 @@ public class ResultOfLevel : MonoBehaviour
     public AllLevelsData allLevelsData;
     public bool isCheckingPig = false;
     public int numberOfPigs = 0;
-
+    private string serverURL = "http://localhost:5000/auth/update-achivement";
     // Start is called before the first frame update
     void Start()
     {
@@ -57,65 +59,48 @@ public class ResultOfLevel : MonoBehaviour
     void Update()
     {
         GameObject[] enemies= GameObject.FindGameObjectsWithTag("Enemy");
-        
-        
         if (PlayerPrefs.HasKey("isOnlineLevel")) {
             if (PlayerPrefs.GetInt("isOnlineLevel") == 1){
                 if (!isCheckingPig) StartCoroutine(WaitingForLoading());
+                else {
+                    CheckingWinCondition();
+                }
             }
         }
         else {
-            
-        
-            
-            foreach (GameObject enemy in enemies){
-                if (enemy.GetComponent<EnemyHealth>().element == "Pig"){
-                    numberOfPigs++;
-                }
-            }
-            if (numberOfPigs == 0){
-                //Debug.Log(scoreText.text.Substring(7));
-                int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
-                //Debug.Log(highScoreText.text.Substring(12));
-                isFinished = true;
-                isWin = 1;
-                StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
-            }
-            else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
-                isFinished = true;
-                // Debug.Log("111111");
-                StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
-                
-            }
+            CheckingWinCondition();
         }
-        
-        
-        
-        
-        if (PlayerPrefs.HasKey("isOnlineLevel")) {
-            if (PlayerPrefs.GetInt("isOnlineLevel") == 1 && isCheckingPig == true){
-                if (numberOfPigs == 0){
-                    //Debug.Log(scoreText.text.Substring(7));
-                    int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
-                    //Debug.Log(highScoreText.text.Substring(12));
-                    isFinished = true;
-                    isWin = 1;
-                    StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
-                }
-                else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
-                    isFinished = true;
-                    // Debug.Log("111111");
-                    StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
-                    
-                }
+    }
+
+    void CheckingWinCondition(){
+        GameObject[] enemies= GameObject.FindGameObjectsWithTag("Enemy");
+        numberOfPigs = 0;
+        foreach (GameObject enemy in enemies){
+            if (enemy.GetComponent<EnemyHealth>().element == "Pig"){
+                numberOfPigs++;
             }
+            
         }
-        
-        
+        // Debug.Log(numberOfPigs);
+        if (numberOfPigs == 0){
+            //Debug.Log(scoreText.text.Substring(7));
+            int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
+            //Debug.Log(highScoreText.text.Substring(12));
+            isFinished = true;
+            isWin = 1;
+            StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+        }
+        else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
+            isFinished = true;
+            isWin = 0;
+            // Debug.Log("111111");
+            StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
+            
+        }
     }
     IEnumerator WaitingForLoading(){
         
-        
+        numberOfPigs = 0;
         while (numberOfPigs == 0)
         {
             GameObject[] enemies= GameObject.FindGameObjectsWithTag("Enemy");
@@ -162,20 +147,51 @@ public class ResultOfLevel : MonoBehaviour
             }
             // PlayerPrefs.SetString("CurrentLevel", currentScene);
         }
-        else {
-            foreach (var i in allLevelsData.levels){
-                if (i.levelName == PlayerPrefs.GetString("current_level")){
-                    i.isValidLevel = true;
-                    SaveToFile(i);
-                    break;
+        else if (!PlayerPrefs.HasKey("isOnlineLevel")) {
+            // play custom level
+            if (isWin == 1){
+                foreach (var i in allLevelsData.levels){
+                    if (i.levelName == PlayerPrefs.GetString("current_level")){
+                        i.isValidLevel = true;
+                        SaveToFile(i);
+                        break;
+                    }
                 }
             }
+            
+        }
+        else {
+            if (isWin == 1) StartCoroutine(UpdateAchievement(score));
         }
         
         PlayerPrefs.SetInt("Score", score);
         
         PlayerPrefs.SetInt("isWin", isWin);
         SceneManager.LoadScene(finishScene);
+    }
+    IEnumerator UpdateAchievement(int score){
+        // Tạo dữ liệu JSON: levelName, score and nickname
+        string jsonData = "{\"levelName\":\"" + PlayerPrefs.GetString("current_level") + "\", \"score\":\"" + score + "\", \"nickname\":\"" + PlayerPrefs.GetString("nickname") + "\"}";
+        
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonData);
+        string token = PlayerPrefs.GetString("token");
+        
+        // Tạo yêu cầu HTTP
+        UnityWebRequest request = new UnityWebRequest(serverURL, "POST");
+        request.SetRequestHeader("Authorization", "Bearer " + token);
+        request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Gửi request
+        yield return request.SendWebRequest();
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.downloadHandler.text);
+        }
+        else {
+            Debug.LogError("Update failed by the error: " + request.downloadHandler.text);
+        }
     }
     void SaveToFile(LevelCustomData newLevel)
     {

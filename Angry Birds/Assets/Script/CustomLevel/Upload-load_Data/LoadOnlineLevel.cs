@@ -17,7 +17,9 @@ public class LoadOnlineLevel : MonoBehaviour
     {
         
         StartCoroutine(LoadLevel());
-        
+        if (PlayerPrefs.HasKey("isOnlineLevel")) {
+            PlayerPrefs.DeleteKey("isOnlineLevel");
+        }
     }
 
     public IEnumerator LoadLevel(){

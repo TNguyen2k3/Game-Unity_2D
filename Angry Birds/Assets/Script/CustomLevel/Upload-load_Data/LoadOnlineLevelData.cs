@@ -12,6 +12,7 @@ public class LoadOnlineLevelData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         StartCoroutine(LoadLevelData());
     }
 
@@ -53,7 +54,7 @@ public class LoadOnlineLevelData : MonoBehaviour
                 CreateObjectFromData(enemy.data, type);
             }
             Time.timeScale = 1;
-            PlayerPrefs.SetInt("isOnlineLevel", 1);
+            
         }
     }
 

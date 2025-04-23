@@ -13,6 +13,7 @@ public class PlayAgain : MonoBehaviour
         if (PlayerPrefs.HasKey("isOnlineLevel")) {
             if (PlayerPrefs.GetInt("isOnlineLevel") == 1){
                 sceneName = "PlayOnlineLevel";
+                
             }
         }
         if (sceneName != "PlayOnlineLevel" && sceneName != "PlayCustomLevel") sceneName = "Level" + PlayerPrefs.GetString("current_level");

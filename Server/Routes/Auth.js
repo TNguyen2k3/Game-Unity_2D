@@ -35,7 +35,7 @@ router.post('/register',  async (req, res) => {
     }
 });
 
-// Đăng nhập
+// Đăng nhập (not used)
 router.post('/login', async (req, res) => {
     try {
         const { username, otp } = req.body;
@@ -239,15 +239,18 @@ router.get('/get-level-data', authMiddleware, (req, res) => {
     });
 });
 
-router.get('/update-achivement', authMiddleware,  async (req, res) => {
+router.post('/update-achivement', authMiddleware,  async (req, res) => {
     const {levelName, score, nickname} = req.body;
     
     const achievement = await Achievement.findOne({
         name: nickname,
         "completedLevels.levelName": levelName
     });
-    const existingLevel = achievement.completedLevels.find(lv => lv.levelName === levelName);
-
+   
+    var existingLevel;
+    if (achievement){
+        existingLevel = achievement.completedLevels.find(lv => lv.levelName === levelName);
+    }
     if (existingLevel) {
         if (score > existingLevel.score) {
             const scoreDiff = score - existingLevel.score;
@@ -288,5 +291,24 @@ router.get('/update-achivement', authMiddleware,  async (req, res) => {
 
 })
 
+router.get('/get-your-profile', async (req, res) => {
+    const {nickname} = req.body;
+    const achievement = await Achievement.findOne({name: nickname});
+    const user = await User.findOne({
+        name: nickname
+    })
+    if (achievement && user){
+        res.json({
+            message: `Here is ${nickname} 's data`,
+            name: nickname,
+            username: user.username,
+            gmail: user.gmail,
+            totalScore: achievement.totalScore,
+            levelPassed: achievement.levelPassed,
+            completedLevels: achievement.completedLevels
+        })
+    }
+    else return res.status(404).json("User not found");
+})
 
 module.exports = router;

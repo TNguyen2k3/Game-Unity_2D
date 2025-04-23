@@ -15,6 +15,8 @@ public class GoToOnlineLevelChose : MonoBehaviour
     public void OnButtonClicked(){
         PlayerPrefs.SetString("current_level", button.GetComponentInChildren<TMP_Text>().text);
         PlayerPrefs.Save();
+        PlayerPrefs.SetInt("isOnlineLevel", 1);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("PlayOnlineLevel");
     }
     // Update is called once per frame

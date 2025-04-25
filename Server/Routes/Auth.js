@@ -24,7 +24,7 @@ router.post('/register',  async (req, res) => {
             console.log("Username already exists!");
             return res.status(400).json({ message: "Username already exists!" });
         }
-        const hashedPassword = await bcrypt.hash("######", 10);
+        const hashedPassword = await bcrypt.hash("********", 10);
         const newUser = new User({ name: nickname, gmail, username, otp: hashedPassword, otpExpired });
         const newAchievement = new Achievement({name: nickname})
         await newAchievement.save();

@@ -26,8 +26,11 @@ public class Login : MonoBehaviour
         string OTP = OTPField.text;
         
         //Send username and OTP to server for authentication
-        
-        StartCoroutine(SendDataToServer(username, OTP));
+        if (OTP.Length != 6){
+            errorMessage.text = "OTP is invalid, please try again!";
+            StartCoroutine(ErrorMessage());
+        }
+        else StartCoroutine(SendDataToServer(username, OTP));
     }
     IEnumerator SendDataToServer(string username, string otp)
     {

@@ -4,39 +4,77 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+
 public class LoadSavedLevel : MonoBehaviour
 {
-    private string filePath;
+    private string filePath = Application.dataPath + "/StreamingAssets/CustomLevelData.json";
     public List<string> availableLevels = new List<string>();
     public Button levelButton;
     public GameObject startPos;
-    public GameObject Canvas;
+    public GameObject pageNumber;
+    public bool isLoaded = true;
+    public Transform Content;
+    public int numberPerPage = 24;
+
+    private List<GameObject> currentButtons = new List<GameObject>();
 
     void Awake()
     {
-        filePath = Application.dataPath + "/StreamingAssets/CustomLevelData.json";
         LoadLevelList();
-        for(int i = 0; i < availableLevels.Count; i++){
+        LoadLevelButtons();
+    }
+
+    void Update()
+    {
+        if (!isLoaded)
+        {
+            LoadLevelButtons();
+            isLoaded = true;
+        }
+    }
+
+    void LoadLevelButtons()
+    {
+        // Xóa các button cũ trước khi tạo mới
+        foreach (GameObject button in currentButtons)
+        {
+            Destroy(button);
+        }
+        currentButtons.Clear();
+
+        int page = int.Parse(pageNumber.GetComponentInChildren<TMP_Text>().text);
+        int i;
+        int numberLevelOfRow = Mathf.CeilToInt(numberPerPage / 3f);
+        Debug.Log(numberLevelOfRow);
+        for (i = numberPerPage * (page - 1); i < availableLevels.Count && i < numberPerPage * page; i++)
+        {
             Button level = Instantiate(
                 levelButton,
-                startPos.transform.position + new Vector3(200 * i, 0, 0),
+                startPos.transform.position + new Vector3((200 * i) % (200 * numberLevelOfRow), -((i - numberPerPage * (page - 1)) / numberLevelOfRow) * 200, 0),
                 startPos.transform.rotation,
-                Canvas.transform // 👈 gán nút làm con của một object nằm trong Canvas (thường là Panel)
+                Content
             );
             level.GetComponentInChildren<TMP_Text>().text = availableLevels[i];
             level.gameObject.SetActive(true);
             level.interactable = true;
             level.GetComponentInChildren<TMP_Text>().fontSize = 24;
+
+            currentButtons.Add(level.gameObject);
         }
-        Button addLevel = Instantiate(
-            levelButton,
-            startPos.transform.position + new Vector3(200 * availableLevels.Count, 0, 0),
-            startPos.transform.rotation,
-            Canvas.transform // 👈 gán nút làm con của một object nằm trong Canvas (thường là Panel)
-        );
-        addLevel.gameObject.SetActive(true);
-        addLevel.interactable = true;
-        
+
+        if (i - numberPerPage * (page - 1) < numberPerPage)
+        {
+            Button addLevel = Instantiate(
+                levelButton,
+                startPos.transform.position + new Vector3((200 * i) % (200 * numberLevelOfRow), -((i - numberPerPage * (page - 1)) / numberLevelOfRow) * 200, 0),
+                startPos.transform.rotation,
+                Content
+            );
+            addLevel.gameObject.SetActive(true);
+            addLevel.interactable = true;
+
+            currentButtons.Add(addLevel.gameObject);
+        }
     }
 
     public void LoadLevelList()
@@ -55,12 +93,10 @@ public class LoadSavedLevel : MonoBehaviour
         {
             if (i.levelName != null)
             {
-                
                 availableLevels.Add(i.levelName);
             }
         }
 
         Debug.Log("Danh sách level đã được load: " + string.Join(", ", availableLevels));
     }
-    
 }

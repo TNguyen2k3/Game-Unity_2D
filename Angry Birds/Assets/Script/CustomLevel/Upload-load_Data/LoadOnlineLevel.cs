@@ -6,27 +6,43 @@ using UnityEngine.UI;
 using System.IO;
 using TMPro;
 using Newtonsoft.Json.Linq;
+
 public class LoadOnlineLevel : MonoBehaviour
 {
     public Button buttonPrefab;
     public GameObject startPos;
-    public GameObject Canvas;
+    public Transform Content;
+    public GameObject pageNumber;
+    public int numberPerPage = 24;
+
     public List<string> availableLevels = new List<string>();
-    // Start is called before the first frame update
+    private List<GameObject> currentButtons = new List<GameObject>();
+    public bool isLoaded = true;
+
     public void Awake()
     {
-        
         StartCoroutine(LoadLevel());
-        if (PlayerPrefs.HasKey("isOnlineLevel")) {
+
+        if (PlayerPrefs.HasKey("isOnlineLevel"))
+        {
             PlayerPrefs.DeleteKey("isOnlineLevel");
         }
     }
 
-    public IEnumerator LoadLevel(){
+    void Update()
+    {
+        if (!isLoaded)
+        {
+            GenerateLevelButtons();
+            isLoaded = true;
+        }
+    }
+
+    public IEnumerator LoadLevel()
+    {
         string token = PlayerPrefs.GetString("token");
         UnityWebRequest www = new UnityWebRequest("http://localhost:5000/auth/get-level-list", "GET");
         www.SetRequestHeader("Authorization", "Bearer " + token);
-        
         www.downloadHandler = new DownloadHandlerBuffer();
         www.SetRequestHeader("Content-Type", "application/json");
 
@@ -43,35 +59,50 @@ public class LoadOnlineLevel : MonoBehaviour
             {
                 JObject parsed = JObject.Parse(json);
                 JArray levelsArray = (JArray)parsed["levels"];
+
+                availableLevels.Clear();
+
                 foreach (var level in levelsArray)
                 {
                     string fileName = level.ToString();
                     availableLevels.Add(Path.GetFileNameWithoutExtension(fileName));
                 }
+
+                GenerateLevelButtons();
             }
             catch (System.Exception ex)
             {
                 Debug.LogError("Lỗi khi parse JSON với Newtonsoft: " + ex.Message);
             }
         }
+    }
 
-        for(int i = 0; i < availableLevels.Count; i++){
+    private void GenerateLevelButtons()
+    {
+        foreach (GameObject button in currentButtons)
+        {
+            Destroy(button);
+        }
+        currentButtons.Clear();
+
+        int page = int.Parse(pageNumber.GetComponentInChildren<TMP_Text>().text);
+        int i;
+        int numberLevelOfRow = Mathf.CeilToInt(numberPerPage / 3f);
+
+        for (i = numberPerPage * (page - 1); i < availableLevels.Count && i < numberPerPage * page; i++)
+        {
             Button level = Instantiate(
                 buttonPrefab,
-                startPos.transform.position + new Vector3(200 * i, 0, 0),
+                startPos.transform.position + new Vector3((200 * i) % (200 * numberLevelOfRow), -((i - numberPerPage * (page - 1)) / numberLevelOfRow) * 200, 0),
                 startPos.transform.rotation,
-                Canvas.transform // 👈 gán nút làm con của một object nằm trong Canvas (thường là Panel)
+                Content
             );
             level.GetComponentInChildren<TMP_Text>().text = availableLevels[i];
             level.gameObject.SetActive(true);
             level.interactable = true;
             level.GetComponentInChildren<TMP_Text>().fontSize = 24;
-        }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            currentButtons.Add(level.gameObject);
+        }
     }
 }

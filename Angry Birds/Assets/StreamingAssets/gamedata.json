@@ -23,10 +23,10 @@
         {
             "levelKey": "lv3",
             "levelData": {
-                "highScore": 0,
+                "highScore": 137569,
                 "twoStarScore": 90000,
                 "threeStarScore": 140000,
-                "starRating": 0,
+                "starRating": 2,
                 "unlocked": true
             }
         },
@@ -37,7 +37,7 @@
                 "twoStarScore": 100000,
                 "threeStarScore": 130000,
                 "starRating": 0,
-                "unlocked": false
+                "unlocked": true
             }
         }
     ]

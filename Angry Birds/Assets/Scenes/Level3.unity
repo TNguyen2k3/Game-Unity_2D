@@ -2783,8 +2783,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 333214576804783635, guid: e577fea537b3ae44f937872e39a30cd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2552802384948495000}
   m_SourcePrefab: {fileID: 100100000, guid: e577fea537b3ae44f937872e39a30cd6, type: 3}
+--- !u!1 &2552802384948494999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 333214576804783635, guid: e577fea537b3ae44f937872e39a30cd6, type: 3}
+  m_PrefabInstance: {fileID: 2552802384948494998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2552802384948495000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2552802384948494999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739fd7ab3848c8c44b951c18373c033b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: Ingame-music
+  fadeTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

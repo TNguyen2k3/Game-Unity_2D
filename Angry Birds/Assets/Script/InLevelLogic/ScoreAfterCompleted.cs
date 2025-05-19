@@ -14,6 +14,15 @@ public class ScoreAfterCompleted : MonoBehaviour
     
     void Start()
     {
+        foreach (var sound in AudioManager.Instance.sounds)
+        {
+            if (sound.name == "Ingame-music" && sound.source.isPlaying)
+            {
+                AudioManager.Instance.Stop(sound.name);
+            }
+        }
+        if (PlayerPrefs.GetInt("isWin") == 1) AudioManager.Instance.Play("Winning-sound");
+        else AudioManager.Instance.Play("Defeat-sound");
         dataManager = FindObjectOfType<GameDataManager>();
         finishImage = GameObject.FindGameObjectWithTag("Finish").GetComponent<Image>();
         scoreText = GetComponent<TextMeshProUGUI>();

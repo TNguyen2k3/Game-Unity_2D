@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 744498548}
   - component: {fileID: 744498547}
   - component: {fileID: 744498550}
+  - component: {fileID: 744498551}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -559,6 +560,20 @@ MonoBehaviour:
   numberPerPage: 3
   availableLevels: []
   isLoaded: 1
+--- !u!114 &744498551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744498546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739fd7ab3848c8c44b951c18373c033b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: Peaceful-music
+  fadeTime: 1
 --- !u!1 &836775450
 GameObject:
   m_ObjectHideFlags: 0

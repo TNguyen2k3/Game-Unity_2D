@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 96380874}
   - component: {fileID: 96380877}
   - component: {fileID: 96380878}
+  - component: {fileID: 96380879}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -253,6 +254,20 @@ MonoBehaviour:
     levels: []
   isCheckingPig: 0
   numberOfPigs: 0
+--- !u!114 &96380879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96380873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739fd7ab3848c8c44b951c18373c033b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: Ingame-music
+  fadeTime: 1
 --- !u!1001 &190034991
 PrefabInstance:
   m_ObjectHideFlags: 0

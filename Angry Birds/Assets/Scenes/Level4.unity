@@ -1845,6 +1845,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7644578762935531218, guid: f7dd0be2f1cd1384bb8f45e24a79eecd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1365310681}
+    - targetCorrespondingSourceObject: {fileID: 7644578762935531218, guid: f7dd0be2f1cd1384bb8f45e24a79eecd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1365310682}
   m_SourcePrefab: {fileID: 100100000, guid: f7dd0be2f1cd1384bb8f45e24a79eecd, type: 3}
 --- !u!1 &1365310680 stripped
 GameObject:
@@ -1865,6 +1868,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData:
     levels: []
+--- !u!114 &1365310682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365310680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739fd7ab3848c8c44b951c18373c033b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: Ingame-music
+  fadeTime: 1
 --- !u!114 &1598731422 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1797730549412442219, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}

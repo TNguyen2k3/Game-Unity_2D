@@ -1371,6 +1371,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4418083986266105057, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418083986266105057, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
       propertyPath: m_SizeDelta.y
       value: 60
       objectReference: {fileID: 0}
@@ -1393,6 +1397,10 @@ PrefabInstance:
     - target: {fileID: 7545951467438814649, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910676709995377889, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7910676709995377889, guid: 465282162a7d35248b0ac6213f2b88bf, type: 3}
       propertyPath: m_SizeDelta.y

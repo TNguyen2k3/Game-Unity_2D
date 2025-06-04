@@ -20,10 +20,13 @@ public class LoadSavedLevel : MonoBehaviour
 
     void Awake()
     {
+        LoadLevel();
+    }
+    public void LoadLevel()
+    {
         LoadLevelList();
         LoadLevelButtons();
     }
-
     void Update()
     {
         if (!isLoaded)
@@ -97,6 +100,6 @@ public class LoadSavedLevel : MonoBehaviour
             }
         }
 
-        Debug.Log("Danh sách level đã được load: " + string.Join(", ", availableLevels));
+        // Debug.Log("Danh sách level đã được load: " + string.Join(", ", availableLevels));
     }
 }

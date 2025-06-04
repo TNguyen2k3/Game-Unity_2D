@@ -92,7 +92,7 @@ public class ResultOfLevel : MonoBehaviour
         }
         else if (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length + GameObject.FindGameObjectsWithTag("Untagged").Length == 0){
             isFinished = true;
-            isWin = 0;
+            
             // Debug.Log("111111");
             StartCoroutine(WaitingFor5Sec(scoreText, isWin, finishScene));
             
@@ -120,11 +120,16 @@ public class ResultOfLevel : MonoBehaviour
             
         }
         isCheckingPig = true;
-        Debug.Log(numberOfPigs);
+        
     }
     IEnumerator WaitingFor5Sec(TextMeshProUGUI scoreText, int isWin, string finishScene){
         
         yield return new WaitForSeconds(5);
+        if (numberOfPigs == 0)
+        { 
+            isWin = 1;
+        }
+        else isWin = 0;
         int score = (10000 * (GameObject.FindGameObjectsWithTag("Bird").Length + GameObject.FindGameObjectsWithTag("Ready").Length)) + int.Parse(scoreText.text.Substring(7));
         scoreText.text = "Score: " + score.ToString();
         if (dataManager){
@@ -167,6 +172,7 @@ public class ResultOfLevel : MonoBehaviour
         PlayerPrefs.SetInt("Score", score);
         
         PlayerPrefs.SetInt("isWin", isWin);
+        Debug.Log(numberOfPigs);
         SceneManager.LoadScene(finishScene);
     }
     IEnumerator UpdateAchievement(int score){

@@ -1,0 +1,47 @@
+{
+  "isValidLevel": true,
+  "levelName": "2345",
+  "birds": [
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_77@@-2,78;-2,082404;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_92@@-3,18;-2,11623;0@@0;0;0;1"
+    }
+  ],
+  "enemies": [
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_4@@2,142961;-1,909757;0@@0;0;-2,820965E-06;1"
+    },
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_4@@2,148397;-1,283486;0@@0;0;-3,326537E-06;1"
+    },
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_4@@3,387758;-1,909708;0@@0;0;4,215981E-05;1"
+    },
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_4@@3,395243;-1,283341;0@@0;0;0,000107149;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,715516;-2,025149;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,715516;-1,638423;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,715516;-1,251697;0@@0;0;0;1"
+    },
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_350@@2,676259;-0,8745586;0@@0;0;8,915282E-05;1"
+    },
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_134@@2,221639;-0,4702379;0@@0;0;0,0001519226;1"
+    },
+    {
+      "data": "PC Computer - Angry Birds Rio - Blocks & Objects_134@@3,085853;-0,470094;0@@0;0;-1,073437E-05;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,651891;-0,07503156;0@@0;0;-0,05145925;0,9986751"
+    }
+  ]
+}

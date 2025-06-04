@@ -11,14 +11,27 @@ public class ActiveList : MonoBehaviour
     public GameObject Panel;
     public Button button;
     public TMP_Dropdown chooseMode;
+    public LoadSavedLevel loadSavedLevel;
     public void OnButtonClicked()
     {
-        if (button){
-            if (button.GetComponentInChildren<TMP_Text>().text == "+"){
-                isActiveList = !isActiveList; // Đảo trạng thái hiển thị
-                SetButtonsActive(isActiveList);
+        if (button)
+        {
+            if (button.GetComponentInChildren<TMP_Text>().text == "+")
+            {   
+            
+                if (loadSavedLevel.availableLevels.Count >= 3)
+                {
+                    Debug.Log("You reach all your available level, please delete or buy some!");
+                }
+                else
+                {
+                    isActiveList = !isActiveList; // Đảo trạng thái hiển thị
+                    SetButtonsActive(isActiveList);
+                }
+                
             }
-            else {
+            else
+            {
                 PlayerPrefs.SetString("current_level", button.GetComponentInChildren<TMP_Text>().text);
                 PlayerPrefs.Save();
                 chooseMode.gameObject.SetActive(true);
@@ -27,11 +40,12 @@ public class ActiveList : MonoBehaviour
                 // SceneManager.LoadScene("CreateLevel");
             }
         }
-        else {
+        else
+        {
             isActiveList = !isActiveList; // Đảo trạng thái hiển thị
             SetButtonsActive(isActiveList);
         }
-        
+
     }
     void Start(){
         // SetButtonsActive(false);

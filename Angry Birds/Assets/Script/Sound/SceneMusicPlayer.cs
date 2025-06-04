@@ -10,6 +10,9 @@ public class SceneMusicPlayer : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
+        float savedVolume = PlayerPrefs.GetFloat("volume_" + musicName, 1f);
+        AudioManager.Instance.SetVolume(musicName, savedVolume);
         if (!string.IsNullOrEmpty(musicName))
         {
             // Tắt tất cả các bản nhạc đang chạy

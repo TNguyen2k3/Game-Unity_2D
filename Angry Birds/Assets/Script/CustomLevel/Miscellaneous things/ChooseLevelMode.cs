@@ -12,13 +12,21 @@ public class ChooseLevelMode : MonoBehaviour
         
     }
 
-    public void OnValueChanged(int index){
-        if (dropdown.options[index].text == "Open level editor"){
+    public void OnValueChanged(int index)
+    {
+        if (dropdown.options[index].text == "Open level editor")
+        {
             SceneManager.LoadScene("CreateLevel");
         }
         else if (dropdown.options[index].text == "Play this level") SceneManager.LoadScene("PlayCustomLevel");
-        else if (dropdown.options[index].text == "Upload this level") {
+        else if (dropdown.options[index].text == "Upload this level")
+        {
             GetComponent<LevelUploader>().UploadLevel();
+        }
+        else if (dropdown.options[index].text == "Delete this level")
+        {
+            // delete level
+            GetComponent<LevelDeleter>().DeleteLevel();
         }
     }
     // Update is called once per frame

@@ -1,0 +1,23 @@
+{
+  "isValidLevel": true,
+  "levelName": "1234",
+  "birds": [
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_112@@-2,78;-2,080922;0@@0;0;0;1"
+    }
+  ],
+  "enemies": [
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,582798;-2,025854;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,582798;-1,640279;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,582798;-1,254404;0@@0;0;0;1"
+    },
+    {
+      "data": "Mobile - Angry Birds - Post-Chrome Characters_38@@2,582798;-0,8681058;0@@0;0;0;1"
+    }
+  ]
+}

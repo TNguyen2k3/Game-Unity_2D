@@ -14,6 +14,7 @@ public class ScoreAfterCompleted : MonoBehaviour
     
     void Start()
     {
+        // sound
         foreach (var sound in AudioManager.Instance.sounds)
         {
             if (sound.name == "Ingame-music" && sound.source.isPlaying)
@@ -23,6 +24,7 @@ public class ScoreAfterCompleted : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("isWin") == 1) AudioManager.Instance.Play("Winning-sound");
         else AudioManager.Instance.Play("Defeat-sound");
+
         dataManager = FindObjectOfType<GameDataManager>();
         finishImage = GameObject.FindGameObjectWithTag("Finish").GetComponent<Image>();
         scoreText = GetComponent<TextMeshProUGUI>();
@@ -32,11 +34,6 @@ public class ScoreAfterCompleted : MonoBehaviour
         
         LevelDataEntry levelEntry = dataManager.gameData.levels.Find(l => l.levelKey == levelKey);
         if (levelEntry != null){
-            if (levelEntry == null)
-            {
-                Debug.LogError("Không tìm thấy dữ liệu của level: " + levelKey);
-                return;
-            }
             LevelData levelData = levelEntry.levelData;
             // Debug.Log("Level: " + level + twoStarScore + "     " + threeStarScore);
             if (PlayerPrefs.HasKey("Score") && PlayerPrefs.HasKey("isWin"))

@@ -15,6 +15,7 @@ public class LevelPlayable : MonoBehaviour
     string level;
     void Start()
     {
+        
         dataManager = FindObjectOfType<GameDataManager>();
         level = levelText.text.Substring(6);
         LevelDataEntry levelEntry = dataManager.gameData.levels.Find(l => l.levelKey == "lv" + level);

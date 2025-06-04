@@ -87,9 +87,6 @@ const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString()
 
 router.post("/request-otp", async (req, res) => {
     const { username } = req.body;
-    if (!username) {
-        return res.status(400).json({ success: false, message: "Vui lòng nhập username hoặc gmail!" });
-    }
 
     try {
         const otp = generateOTP();
@@ -98,7 +95,7 @@ router.post("/request-otp", async (req, res) => {
         const otpExpired = new Date(Date.now() + 5 * 60 * 1000); // Hết hạn sau 5 phút
 
         // Tìm user theo gmail hoặc username
-        let user = await User.findOne({ $or: [{ gmail: username }, { username }] });
+        let user = await User.findOne({ $or: [{ gmail: username }, { username: username }] });
 
         if (user) {
             // Nếu tìm thấy user, cập nhật OTP
@@ -108,11 +105,9 @@ router.post("/request-otp", async (req, res) => {
             // Gửi OTP qua email
             await sendMail(user.gmail, `Mã OTP của bạn là: ${otp}`);
         } 
-        else await sendMail(username, `Mã OTP của bạn là: ${otp}`);
-        
         console.log("message: OTP đã được gửi!");
 
-        return res.json({ success: true, message: "OTP đã được gửi!" });
+        return res.json({ success: true, message: `OTP ${otp} đã được gửi!` });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ success: false, message: "Lỗi khi gửi OTP!", error });
@@ -309,6 +304,32 @@ router.get('/get-your-profile', async (req, res) => {
         })
     }
     else return res.status(404).json("User not found");
+})
+
+router.delete('/delete-your-level', async (req, res) => {
+    try {
+        const { levelName } = req.body; // Lấy levelName từ body
+        console.log(levelName);
+        if (!levelName) {
+            return res.status(400).json({ message: 'Missing levelName in request body.' });
+        }
+
+        // Đường dẫn đến file level
+        const filePath = path.join(__dirname, '../Levels', `${levelName}.json`);
+        console.log(filePath);
+        // Kiểm tra file có tồn tại không
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).json({ message: 'Level file not found.' });
+        }
+
+        // Xóa file
+        fs.unlinkSync(filePath);
+
+        return res.status(200).json({ message: `Level '${levelName}' deleted successfully.` });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: 'Error deleting level file.' });
+    }
 })
 
 module.exports = router;

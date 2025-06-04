@@ -67,7 +67,7 @@ public class SignIn : MonoBehaviour
         }
         else
         {
-            Debug.Log("Lỗi kết nối đến server: " + request.error);
+            Debug.Log("Lỗi kết nối đến server: " + request.downloadHandler.text);
         }
     }
     // Update is called once per frame

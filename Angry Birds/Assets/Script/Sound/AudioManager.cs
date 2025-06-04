@@ -60,7 +60,10 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = FindSound(name);
         if (s != null)
+        {
+            s.volume = Mathf.Clamp01(volume);
             s.source.volume = Mathf.Clamp01(volume);
+        }
     }
 
     private Sound FindSound(string name)
@@ -85,7 +88,12 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator<WaitForSeconds> FadeSoundOut(Sound s, float duration)
     {
-        if (s == null) yield break;
+        if (s == null)
+        {
+            Debug.Log("FadeOut failed: sound null");
+            yield break;
+        }
+
         float startVolume = s.source.volume;
         float time = 0f;
         while (time < duration)
@@ -94,8 +102,9 @@ public class AudioManager : MonoBehaviour
             s.source.volume = Mathf.Lerp(startVolume, 0, time / duration);
             yield return null;
         }
+
         s.source.Stop();
-        s.source.volume = startVolume; // Reset lại volume
+        s.source.volume = startVolume;
     }
 
     private IEnumerator<WaitForSeconds> FadeSoundIn(Sound s, float duration)
